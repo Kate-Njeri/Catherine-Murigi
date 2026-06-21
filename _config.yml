@@ -9,8 +9,8 @@ description: >-
 #   url: "https://your-username.github.io"
 #   baseurl: ""              # leave blank for a user/org site (username.github.io)
 #   baseurl: "/repo-name"    # set this if it's a project site (username.github.io/repo-name)
-url: " https://kate-njeri.github.io"
-baseurl: "/Catherine-Murigi"
+url: " https://kate-njeri.github.io/Catherine-Murigi/"
+baseurl: ""
 
 permalink: /blog/:year/:month/:day/:title/
 

@@ -1,0 +1,35 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<section class="blog-hero">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="dot"></span>FIELD NOTES</div>
+    <h1 class="section-title reveal" style="margin-bottom:0.5rem;">Notes on process, data, and operations work.</h1>
+    <p style="color:var(--slate); max-width:56ch;" class="reveal">Short, practical write-ups — mostly things I wished someone had told me before I had to learn them the slow way. New posts are just markdown files, so this list updates itself.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="post-list reveal">
+      {% for post in site.posts %}
+      <a class="post-row" href="{{ post.url | relative_url }}">
+        <div class="post-meta">
+          <span class="tag">{{ post.category | default: "notes" | upcase }}</span>
+          &nbsp;·&nbsp;{{ post.date | date: "%b %d, %Y" }}
+          &nbsp;·&nbsp;{{ post.content | number_of_words | divided_by: 200 | at_least: 1 }} min read
+        </div>
+        <div class="post-title">{{ post.title }}</div>
+        {% if post.excerpt %}<p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+
+    {% if site.posts.size == 0 %}
+    <p style="color:var(--slate);">No posts yet — drop a markdown file in <code style="font-family:var(--font-mono); color:var(--cyan);">_posts/</code> to get started.</p>
+    {% endif %}
+  </div>
+</section>

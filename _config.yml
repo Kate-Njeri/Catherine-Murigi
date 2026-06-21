@@ -1,0 +1,38 @@
+title: Alex Morgan
+author: Alex Morgan
+tagline: Operations Analyst
+description: >-
+  Portfolio and blog for Alex Morgan, an operations analyst focused on
+  process improvement, data analysis, and reporting automation.
+
+# IMPORTANT: update this once your repo is live, e.g.
+#   url: "https://your-username.github.io"
+#   baseurl: ""              # leave blank for a user/org site (username.github.io)
+#   baseurl: "/repo-name"    # set this if it's a project site (username.github.io/repo-name)
+url: "https://your-username.github.io"
+baseurl: ""
+
+permalink: /blog/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

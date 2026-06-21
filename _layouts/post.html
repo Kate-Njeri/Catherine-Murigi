@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="post-page wrap">
+  <div class="post-header">
+    <div class="post-meta">
+      <span class="tag">{{ page.category | default: "FIELD NOTE" | upcase }}</span>
+      &nbsp;·&nbsp;{{ page.date | date: "%b %d, %Y" }}
+      &nbsp;·&nbsp;{{ page.content | number_of_words | divided_by: 200 | at_least: 1 }} min read
+    </div>
+    <h1>{{ page.title }}</h1>
+  </div>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <div class="post-footer">
+    <a href="{{ '/blog/' | relative_url }}" class="btn btn-ghost">← Back to all field notes</a>
+  </div>
+</article>

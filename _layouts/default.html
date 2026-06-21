@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description }}">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230b0e14%22/><circle cx=%2250%22 cy=%2250%22 r=%2216%22 fill=%22%232de2c5%22/></svg>">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+
+  {% feed_meta %}
+  {% seo %}
+</head>
+<body>
+
+  <div class="status-bar">
+    <div class="wrap">
+      <div class="seg">
+        <span class="status-led"></span>SYSTEM ONLINE
+        <span class="sep hide-sm">|</span>
+        <span class="hide-sm">LOCAL TIME <span id="liveClock">00:00:00</span></span>
+      </div>
+      <div class="seg hide-sm">BUILD {{ site.time | date: "%Y.%m" }} · DEPLOYED VIA GITHUB PAGES</div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <a href="{{ '/' | relative_url }}" class="brand">
+        {{ site.author }} <span class="role">/ OPS ANALYST</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="{{ '/' | relative_url }}#about">About</a></li>
+        <li><a href="{{ '/' | relative_url }}#experience">Experience</a></li>
+        <li><a href="{{ '/' | relative_url }}#projects">Case Files</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>Blog</a></li>
+        <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+      </ul>
+      <a href="{{ '/' | relative_url }}#contact" class="nav-cta">Open a channel →</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© {{ site.time | date: "%Y" }} {{ site.author }}. Built with Jekyll, hosted free on GitHub Pages.</span>
+      <span>STATUS: <span style="color:var(--cyan)">ALL SYSTEMS NORMAL</span></span>
+    </div>
+  </footer>
+
+</body>
+</html>
